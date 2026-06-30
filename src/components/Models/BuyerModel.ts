@@ -24,7 +24,7 @@ export class BuyerModel {
 
     getData(): IBuyer {
         return {
-            payment: this.payment as TPayment,
+            payment: this.payment,
             email: this.email,
             phone: this.phone,
             address: this.address
@@ -44,13 +44,13 @@ export class BuyerModel {
         if (!this.payment) {
             errors.payment = "Не выбран способ оплаты";
         }
-        if (!this.address) {
+        if (!this.address.trim()) {
             errors.address = "Укажите адрес доставки";
         }
-        if (!this.email) {
+        if (!this.email.trim()) {
             errors.email = "Укажите email";
         }
-        if (!this.phone) {
+        if (!this.phone.trim()) {
             errors.phone = "Укажите телефон";
         }
 

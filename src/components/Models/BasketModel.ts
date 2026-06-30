@@ -20,11 +20,7 @@ export class BasketModel {
     }
 
     getTotal(): number {
-        let total = 0;
-        for (const item of this.items) {
-            total += item.price || 0;
-        }
-        return total;
+        return this.items.reduce((total, item) => total + (item.price || 0), 0);
     }
 
     getCount(): number {
